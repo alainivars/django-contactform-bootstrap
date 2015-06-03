@@ -1,16 +1,16 @@
-# bytecode
-*.pyc
-*.pyo
-*.egg-info*
-build/*
+.idea
+.coverage
+.project
+.pydevproject
+*.py[co]
++__pycache__
+build
 dist/*
-
-#ignore pycharm settings
-.idea*
-
-# vim swp files
-*.swp
-
-# test database
-example.db
-
+*.egg-info
+*~
+.tox/*
+htmlcov/*
+coverage.xml
+*.egg
+*.egg/*
+.DS_Store
