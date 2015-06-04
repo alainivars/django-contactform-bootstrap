@@ -14,9 +14,6 @@ env:
         - DJANGO_VERSION=1.8.2
 
 # command to install dependencies
-virtualenv:
-    system_site_packages: true
-
 install:
     - pip install -q Django==$DJANGO_VERSION
     - python setup.py -q install
