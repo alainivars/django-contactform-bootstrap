@@ -11,16 +11,19 @@ from contact_form_bootstrap import forms, views
 from mock import Mock
 
 
-class AcceptanceTestsContactCompletedPage(test.TestCase):
+# class AcceptanceTestsContactCompletedPage(test.TestCase):
+#
+#     def test_receives_200_status_code_for_completed_page(self):
+#         response = self.client.get(reverse("completed"))
+#         assert 200 == response.status_code
+#
+#     def test_uses_completed_template_when_rendering_page(self):
+#         response = self.client.get(reverse("completed"))
+#         self.assertTemplateUsed(response, views.CompletedPage.template_name)
 
-    def test_receives_200_status_code_for_completed_page(self):
-        response = self.client.get(reverse("completed"))
-        assert 200 == response.status_code
-
-    def test_uses_completed_template_when_rendering_page(self):
-        response = self.client.get(reverse("completed"))
-        self.assertTemplateUsed(response, views.CompletedPage.template_name)
-
+def test_BaseEmailFormMixin_get_email_headers():
+    form = forms.BaseEmailFormMixin()
+    assert not form.get_email_headers()
 
 class BaseEmailFormMixinTests(test.TestCase):
 
@@ -83,6 +86,9 @@ def test_sends_mail_with_message_dict(monkeypatch):
     monkeypatch.setattr(
         "contact_form_bootstrap.forms.BaseEmailFormMixin.get_message_dict",
         get_message_dict)
+    send = Mock()
+    send.return_value = 1
+    monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
     form = forms.BaseEmailFormMixin()
     assert form.send_email(mock_request) == 1
@@ -94,6 +100,9 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
     monkeypatch.setattr(
         "contact_form_bootstrap.forms.BaseEmailFormMixin.get_message_dict",
         get_message_dict)
+    send = Mock()
+    send.return_value = 1
+    monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
     form = forms.BaseEmailFormMixin()
     form.send_email(mock_request)
