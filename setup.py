@@ -2,8 +2,10 @@
 # ex:set fileencoding=utf-8:
 
 import os
-from setuptools import setup, find_packages
+import sys
 import contact_form_bootstrap
+from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
@@ -32,6 +34,18 @@ tests_require = [
     'pytest-django',
 ]
 
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        #import here, cause outside the eggs aren't loaded
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
 
 setup(
     name='django_contactform_bootstrap',
@@ -39,7 +53,7 @@ setup(
     packages=find_packages('.'),
     include_package_data=True,
     license='BSD License',  # example license
-    description='A Django Base app.',
+    description='A Django Base contact form with bootstrap 3 and map.',
     long_description=README,
     url='http://www.github.com/alainivars/contact_form_bootstrap/',
     author='James Bennett, Alain Ivars',
@@ -66,4 +80,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    cmdclass={'test': PyTest},
 )

@@ -20,7 +20,7 @@ virtualenv:
 install:
     - pip install -q Django==$DJANGO_VERSION
     - python setup.py -q install
-    - python setup.py tests
+    - python setup.py test
     - pip install coveralls
 
 script:
