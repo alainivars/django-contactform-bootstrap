@@ -5,7 +5,7 @@ import os
 # Django settings for SiteDJ project.
 from contact_form_bootstrap.settings import *
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 
 DATABASES = {
     'default': {
