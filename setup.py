@@ -34,7 +34,7 @@ tests_require = [
 
 
 setup(
-    name='django_contact_form_bootstrap',
+    name='django_contactform_bootstrap',
     version=contact_form_bootstrap.VERSION,
     packages=find_packages('.'),
     include_package_data=True,
