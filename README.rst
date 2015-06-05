@@ -1,6 +1,8 @@
 An Extensible Contact Form.
-Based entirely on James Bennett's django_contactform_bootstrap:
-https://bitbucket.org/ubernostrum/django_contactform_bootstrap/
+Based entirely on James Bennett's django_contact_form:
+https://bitbucket.org/ubernostrum/django_contact_form/
+Based on Aaron Madison django_contact_form:
+https://github.com/madisona/django-contact-form/
 
 |Build status| |PyPi version| |PyPi downloads| |Python version| |PyPi wheel| |Project license|
 
@@ -11,7 +13,6 @@ Features
   - easy integration into an existing django project
   - Bootstrap 3
   - integrate geographical map
-  - vcard in settings file
   - log (not yet finish)
   - tests and coverage
   - link to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
@@ -91,10 +92,10 @@ Credits
    :target: http://travis-ci.org/alainivars/django-contact-form
 
 .. |PyPi version| image:: hhttps://pypip.in/version/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/?badge=latest
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
 
-.. |PyPi downloads| image:: https://pypip.in/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/?period=month
+.. |PyPi downloads| image:: https://pypip.in/download/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
 
 .. |Python version| image:: https://pypip.in/py_versions/django_contactform_bootstrap/badge.svg
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
@@ -112,16 +113,3 @@ Credits
 .. image:: https://readthedocs.org/projects/django_contactform_bootstrap/badge/?version=latest
     :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
     :alt: Documentation status
-
-.. image:: https://pypip.in/version/django_contactform_bootstrap/badge.svg
-    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-    :alt: Latest version
-
-.. image:: https://pypip.in/py_versions/django_contactform_bootstrap/badge.svg
-    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/license/django_contactform_bootstrap/badge.svg
-    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-    :alt: License
-
