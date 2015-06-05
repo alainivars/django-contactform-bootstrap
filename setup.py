@@ -15,7 +15,7 @@ install_requires = [
     'argparse==1.2.1',
     'django-crispy-bootstrap==0.1.1.1',
     'django-crispy-forms==1.4.0',
-    'django-extra-views==0.6.4',
+#    'django-extra-views==0.6.4',
     'requests==2.2.1',
 ]
 
