@@ -1,6 +1,6 @@
 An Extensible Contact Form.
-Based entirely on James Bennett's django-contact-form:
-https://bitbucket.org/ubernostrum/django-contact-form/
+Based entirely on James Bennett's django_contactform_bootstrap:
+https://bitbucket.org/ubernostrum/django_contactform_bootstrap/
 
 |Build status| |PyPi version| |PyPi downloads| |Python version| |PyPi wheel| |Project license|
 
@@ -83,19 +83,19 @@ Credits
 
 * `django`_
 
-.. _Github: https://github.com/alainivars/django-contact-form
-.. _Issue Tracker: https://github.com/alainivars/django-contact-form/issues
+.. _Github: https://github.com/alainivars/django_contactform_bootstrap
+.. _Issue Tracker: https://github.com/alainivars/django_contactform_bootstrap/issues
 .. _django: http://www.djangoproject.com
 
-.. |Build status| image:: https://api.travis-ci.org/django-contact-form/django-contact-form.svg?branch=develop
+.. |Build status| image:: https://api.travis-ci.org/django-contact-form/django-contact-form.svg?branch=master
    :target: http://travis-ci.org/alainivars/django-contact-form
-.. |PyPi version| image:: https://pypip.in/v/django-bmf/badge.svg?text=version
-   :target: https://pypi.python.org/pypi/django-contact-form/
-.. |PyPi downloads| image:: https://pypip.in/d/django-contact-form/badge.svg?period=month
-   :target: https://pypi.python.org/pypi/django-contact-form/
-.. |Python version| image:: https://pypip.in/py_versions/django-contact-form/badge.svg
-   :target: https://pypi.python.org/pypi/django-contact-form/
-.. |PyPi wheel| image:: https://pypip.in/wheel/django-contact-form/badge.svg
-   :target: https://pypi.python.org/pypi/django-contact-form/
-.. |Project license| image:: https://pypip.in/license/django-contact-form/badge.svg
-   :target: https://pypi.python.org/pypi/django-contact-form/
+.. |PyPi version| image:: https://pypip.in/v/alainivars/badge.svg?text=version
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+.. |PyPi downloads| image:: https://pypip.in/d/django_contactform_bootstrap/badge.svg?period=month
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+.. |Python version| image:: https://pypip.in/py_versions/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+.. |PyPi wheel| image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+.. |Project license| image:: https://pypip.in/license/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
