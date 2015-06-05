@@ -1,10 +1,11 @@
 An Extensible Contact Form.
 Based entirely on James Bennett's django_contact_form:
-https://bitbucket.org/ubernostrum/django_contact_form/
+https://bitbucket.org/ubernostrum/django_contact_form
 Based on Aaron Madison django_contact_form:
-https://github.com/madisona/django-contact-form/
+https://github.com/madisona/django-contact-form
+By Alain Ivars django_contactform_bootstrap:
+https://github.com/alainivars/django-contact-form
 
-|Build status| |PyPi version| |PyPi downloads| |Python version| |PyPi wheel| |Project license|
 
 Features
 ===========================
@@ -26,7 +27,7 @@ Todo
  - manage display a link only if it exist
  - correct broken links in this file
 
-Use
+Use (NOT READY TO USE)
 ===========================
 
     + Add in your setting file::
@@ -69,8 +70,7 @@ Documentation
     We'd love to update the documentation and answer your question!
 
     Why version 0.5.0 and not 1.0.0 ?
-    - This django_contact_form_bootstrap is already in use in production, but it first time packaged for distribute
-      and I'm not sure the packaging is ready to use immediately, please be wait a little, a release will arrive.
+    - This is un intermediate version of django_contact_form_bootstrap.
 
 Getting Help
 ===========================
@@ -88,27 +88,21 @@ Credits
 .. _Issue Tracker: https://github.com/alainivars/django_contactform_bootstrap/issues
 .. _django: http://www.djangoproject.com
 
-.. |Build status| image:: https://api.travis-ci.org/alainivars/django-contact-form.svg?branch=master
+.. image:: https://api.travis-ci.org/alainivars/django-contact-form.svg?branch=master
    :target: http://travis-ci.org/alainivars/django-contact-form
+   :alt: Build status
 
-.. |PyPi version| image:: hhttps://pypip.in/version/django_contactform_bootstrap/badge.svg
+.. image:: https://pypip.in/version/django_contactform_bootstrap/badge.svg
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-
-.. |PyPi downloads| image:: https://pypip.in/download/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-
-.. |Python version| image:: https://pypip.in/py_versions/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-
-.. |PyPi wheel| image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-
-.. |Project license| image:: https://pypip.in/license/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+   :alt: PyPi version
 
 .. image:: https://coveralls.io/repos/alainivars/django_contactform_bootstrap/badge.svg?branch=master
-    :target: https://coveralls.io/r/alainivars/django_contactform_bootstrap
-    :alt: Test coverage status
+   :target: https://coveralls.io/r/alainivars/django_contactform_bootstrap
+   :alt: Test coverage status
+
+.. image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+   :alt: PyPi wheel
 
 .. image:: https://readthedocs.org/projects/django_contactform_bootstrap/badge/?version=latest
     :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
