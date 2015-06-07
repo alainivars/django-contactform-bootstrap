@@ -1,16 +1,18 @@
-An Extensible Contact Form.
-Based entirely on James Bennett's django_contact_form:
-  - https://bitbucket.org/ubernostrum/django_contact_form
-Based on Aaron Madison django_contact_form:
-  - https://github.com/madisona/django-contact-form
-By Alain Ivars django_contactform_bootstrap:
-  - https://github.com/alainivars/django-contact-form
+* An Extensible Contact Form::
+
+    Based entirely on James Bennett's django_contact_form:
+      - https://bitbucket.org/ubernostrum/django_contact_form
+    Based on Aaron Madison django_contact_form:
+      - https://github.com/madisona/django-contact-form
+    By Alain Ivars django_contactform_bootstrap:
+      - https://github.com/alainivars/django-contact-form
 
 
 Features
 ===========================
 
-* Functionality as a django contact form
+* Functionality as a django contact form::
+
   - easy integration into an existing django project
   - Bootstrap 3
   - integrate geographical map
@@ -71,9 +73,6 @@ Documentation
     Please note that this Project is documented poorly. If you have any questions please contact us!
     We'd love to update the documentation and answer your question!
 
-    Why version 0.5.0 and not 1.0.0 ?
-    - This is un intermediate version of django_contact_form_bootstrap.
-
 Getting Help
 ===========================
 
@@ -98,8 +97,8 @@ Credits
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
    :alt: PyPi version
 
-.. image:: https://coveralls.io/repos/alainivars/django_contactform_bootstrap/badge.svg?branch=master
-   :target: https://coveralls.io/r/alainivars/django_contactform_bootstrap
+.. image:: https://coveralls.io/repos/alainivars/django-contact-form/badge.svg
+   :target: https://coveralls.io/r/alainivars/django-contact-form
    :alt: Test coverage status
 
 .. image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
