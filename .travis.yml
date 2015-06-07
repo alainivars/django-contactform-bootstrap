@@ -25,7 +25,8 @@ install:
 
 script:
     - py.test
-    - coverage run --source=coveralls py.test
+    - py.test --cov example example/tests/
+#    - coverage run --source=coveralls py.test
     - coverage report -m
 
 after_script:
