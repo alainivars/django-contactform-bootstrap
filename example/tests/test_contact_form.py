@@ -28,7 +28,7 @@ def test_BaseEmailFormMixin_get_email_headers():
 class BaseEmailFormMixinTests(test.TestCase):
 
     def test_goods_values_in_contact_page(self):
-        resp = self.client.get("/")
+        resp = self.client.get(reverse("contact"))
         assert 'center: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
         assert 'map: map, position: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
         assert '<h3 class="fn org">my company</h3>' in resp.content
