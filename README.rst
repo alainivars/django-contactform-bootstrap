@@ -1,10 +1,10 @@
 An Extensible Contact Form.
 Based entirely on James Bennett's django_contact_form:
-https://bitbucket.org/ubernostrum/django_contact_form
+  - https://bitbucket.org/ubernostrum/django_contact_form
 Based on Aaron Madison django_contact_form:
-https://github.com/madisona/django-contact-form
+  - https://github.com/madisona/django-contact-form
 By Alain Ivars django_contactform_bootstrap:
-https://github.com/alainivars/django-contact-form
+  - https://github.com/alainivars/django-contact-form
 
 
 Features
@@ -55,11 +55,6 @@ Use (NOT READY TO USE)
     + Don't forget to set::
 
         EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER and EMAIL_HOST_PASSWORD
-
-
-    and to generate messages by::
-
-        django-admin compilemessages
 
 
 Documentation
