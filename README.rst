@@ -51,10 +51,17 @@ Use (NOT READY TO USE)
             'GOOGLEPLUS': "+Maybe-there",
         }
 
+        CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 
     + Don't forget to set::
 
         EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER and EMAIL_HOST_PASSWORD
+
+
+    + Be sure to have::
+
+        'homepage' defined in your url file
 
 
 Documentation
