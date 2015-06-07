@@ -1,3 +1,11 @@
+.. image:: https://api.travis-ci.org/alainivars/django-contact-form.svg?branch=master
+   :target: http://travis-ci.org/alainivars/django-contact-form
+   :alt: Build status
+
+.. image:: https://coveralls.io/repos/alainivars/django-contact-form/badge.svg
+   :target: https://coveralls.io/r/alainivars/django-contact-form
+   :alt: Test coverage status
+
 * An Extensible Contact Form::
 
     Based entirely on James Bennett's django_contact_form:
@@ -89,17 +97,9 @@ Credits
 .. _Issue Tracker: https://github.com/alainivars/django_contactform_bootstrap/issues
 .. _django: http://www.djangoproject.com
 
-.. image:: https://api.travis-ci.org/alainivars/django-contact-form.svg?branch=master
-   :target: http://travis-ci.org/alainivars/django-contact-form
-   :alt: Build status
-
 .. image:: https://pypip.in/version/django_contactform_bootstrap/badge.svg
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
    :alt: PyPi version
-
-.. image:: https://coveralls.io/repos/alainivars/django-contact-form/badge.svg
-   :target: https://coveralls.io/r/alainivars/django-contact-form
-   :alt: Test coverage status
 
 .. image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
