@@ -3,7 +3,7 @@ python:
   - 2.7
   - 3.3
   - 3.4
-;  - 3.5
+#  - 3.5
   - pypy
   - pypy3
 
@@ -26,9 +26,9 @@ install:
 
 script:
     - py.test
-;    - py.test --cov contact_form_bootstrap tests/
-;    - coverage run --source=coveralls py.test
-;    - coverage report -m
+#    - py.test --cov contact_form_bootstrap tests/
+#    - coverage run --source=coveralls py.test
+#    - coverage report -m
 
 after_success:
     - coveralls
