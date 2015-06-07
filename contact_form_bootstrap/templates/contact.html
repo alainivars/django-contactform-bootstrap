@@ -29,7 +29,7 @@ function init_map()
     };
     map = new google.maps.Map( document.getElementById("gmap_canvas"), myOptions);
     marker = new google.maps.Marker(
-        {map: map, position: new google.maps.LatLng({{ POSITION_LAT }}, {{ POSITION_LNG }}5)}
+        {map: map, position: new google.maps.LatLng({{ COMPANY_LAT }}, {{ COMPANY_LNG }}5)}
     );
     infowindow = new google.maps.InfoWindow({ content:
 "<span class='gmap'><b>{{ COMPANY_NAME }} </b></span><span class='gmap'>{{ COMPANY_ADDRESS }}</span><span class='gmap'>{{ COMPANY_ZIP }} {{ COMPANY_CITY }}</span>"
