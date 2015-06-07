@@ -23,7 +23,4 @@ COMPANY_INFOS = {
     'GOOGLEPLUS': "+Maybe-there",
 }
 
-# your google counter ID
-UA_YOUR = 'UA-you'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
