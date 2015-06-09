@@ -37,6 +37,19 @@ Todo
  - manage display a link only if it exist
  - correct broken links in this file
 
+Screenshot
+===========================
+
+.. image:: https://dl.dropboxusercontent.com/u/95975146/django-contactform-bootstrap.jpg
+   :target: https://dl.dropboxusercontent.com/u/95975146/django-contactform-bootstrap.jpg
+   :alt: Contact form Screenshot
+
+Requirements
+===========================
+
+ - Python (2.7, 3.2, 3.3, 3.4)
+ - Django (1.6.3+, 1.7, 1.8)
+
 Use (NOT READY TO USE)
 ===========================
 
