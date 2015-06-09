@@ -27,6 +27,20 @@ def test_BaseEmailFormMixin_get_email_headers():
 
 class BaseEmailFormMixinTests(test.TestCase):
 
+    # def test_goods_values_in_contact_page(self):
+    #     resp = self.client.get(reverse("contact"))
+    #     assert 'center: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
+    #     assert 'map: map, position: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
+    #     assert '<h3 class="fn org">my company</h3>' in resp.content
+    #     assert '<span class="locality">Maybe-there</span>' in resp.content
+    #     assert '<abbr title="Phone">P</abbr>: +336 1234 5678</p>' in resp.content
+    #     assert '<a class="email" href="mailto:contact@mycompany.com">contact@mycompany.com</a>' in resp.content
+    #     assert '<abbr title="Hours">H</abbr>: Monday - Friday: 9:00 to 18:00' in resp.content
+    #     assert 'facebook-link"><a href="http://fr-fr.facebook.com/people/Maybe-there"' in resp.content
+    #     assert 'linkedin-link"><a href="http://www.linkedin.com/in/Maybe-there"' in resp.content
+    #     assert 'twitter-link"><a href="http://twitter.com/Maybe-there"' in resp.content
+    #     assert 'google-plus-link"><a href="https://plus.google.com/+Maybe-there/posts"' in resp.content
+
     # @mock.patch('django.template.loader.render_to_string')
     # def test_get_message_returns_rendered_message_template(self, render_to_string):
     #     context = {'message': 'an example message.'}

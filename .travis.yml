@@ -1,32 +1,38 @@
 language: python
-
 python:
-    - "2.7"
-    - "3.4"
-    # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-    # maintainers to fix their pypy-dev package.
-    #- "pypy"
+  - 2.7
+  - 3.3
+  - 3.4
+#  - 3.5
+#  - pypy
+#  - pypy3
 
 env:
+    allow_failures:
+        - python: 3.5
     matrix:
         - DJANGO_VERSION=1.6.11
         - DJANGO_VERSION=1.7.8
         - DJANGO_VERSION=1.8.2
 
-# command to install dependencies
+before_install:
+    - pip install pytest pytest-cov
+    - pip install coveralls
+
 install:
     - pip install -q Django==$DJANGO_VERSION
     - python setup.py -q install
     - python setup.py test
-    - pip install coveralls
 
 script:
-   - py.test
-#  - python setup.py test_on_travis
-#  - nosetests --with-coverage --cover-package=sentry
-#  - flake8 .
-#  - "if [[ ${TRAVIS_PYTHON_VERSION} != 'pypy' ]]; then make lint; fi"
-#  - py.test tests/ --cov raven --cov-report term-missing
+#    - py.test
+#    - coverage run --source contact_form_bootstrap setup.py test
+    - py.test --cov contact_form_bootstrap tests/
+#    - coverage run --source=coveralls py.test
+#    - coverage report -m
+
+after_success:
+    - coveralls
 
 notifications:
     email:

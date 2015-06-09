@@ -32,6 +32,8 @@ tests_require = [
     'pytest-cov>=1.4',
     'pytest-django',
     'mock',
+    'cov-core==1.15.0',
+    'coverage==3.7.1',
 ]
 
 class PyTest(TestCommand):

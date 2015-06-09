@@ -22,3 +22,5 @@ COMPANY_INFOS = {
     'TWITTER': "Maybe-there",
     'GOOGLEPLUS': "+Maybe-there",
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
