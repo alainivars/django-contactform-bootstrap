@@ -2,8 +2,8 @@
    :target: http://travis-ci.org/alainivars/django-contact-form
    :alt: Build status
 
-.. image:: https://coveralls.io/repos/alainivars/django-contact-form/badge.svg
-   :target: https://coveralls.io/r/alainivars/django-contact-form
+.. image:: https://coveralls.io/repos/alainivars/django-contact-form/badge.svg?branch=devel
+   :target: https://coveralls.io/r/alainivars/django-contact-form?branch=devel
    :alt: Test coverage status
 
 * An Extensible Contact Form::
