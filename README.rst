@@ -64,7 +64,7 @@ Download
 Use
 ===========================
 
-    + Add in your setting file::
+    + Add in your settings file::
 
         ADMINS = (
             ('your admin name', 'contact@yourdomain.com'),

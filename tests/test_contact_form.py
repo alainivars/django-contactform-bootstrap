@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 """
 Contact Form tests
 """
@@ -19,21 +20,22 @@ class BaseEmailFormMixinTests(test.TestCase):
 
     def test_goods_values_in_contact_page(self):
         resp = self.client.get(reverse("contact"))
-        assert 'center: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
-        assert 'map: map, position: new google.maps.LatLng(48.8148446, 2.0523724)' in resp.content
-        assert '<h3 class="fn org">my company</h3>' in resp.content
-        assert '<span class="locality">Maybe-there</span>' in resp.content
-        assert '<abbr title="Phone">P</abbr>: +336 1234 5678</p>' in resp.content
-        assert '<a class="email" href="mailto:contact@mycompany.com">contact@mycompany.com</a>' in resp.content
-        assert '<abbr title="Hours">H</abbr>: Monday - Friday: 9:00 to 18:00' in resp.content
-        assert 'facebook-link"><a href="http://fr-fr.facebook.com/people/Maybe-there"' in resp.content
-        assert 'linkedin-link"><a href="http://www.linkedin.com/in/Maybe-there"' in resp.content
-        assert 'twitter-link"><a href="http://twitter.com/Maybe-there"' in resp.content
-        assert 'google-plus-link"><a href="https://plus.google.com/+Maybe-there/posts"' in resp.content
+        print(resp.content)
+        assert b'center: new google.maps.LatLng(48.8148446' in resp.content
+        assert b'map: map, position: new google.maps.LatLng(48.8148446' in resp.content
+        assert b'<h3 class="fn org">my company</h3>' in resp.content
+        assert b'<span class="locality">Maybe-there</span>' in resp.content
+        assert b'<abbr title="Phone">P</abbr>: +336 1234 5678</p>' in resp.content
+        assert b'<a class="email" href="mailto:contact@mycompany.com">contact@mycompany.com</a>' in resp.content
+        assert b'<abbr title="Hours">H</abbr>: Monday - Friday: 9:00 to 18:00' in resp.content
+        assert b'facebook-link"><a href="http://fr-fr.facebook.com/people/Maybe-there"' in resp.content
+        assert b'linkedin-link"><a href="http://www.linkedin.com/in/Maybe-there"' in resp.content
+        assert b'twitter-link"><a href="http://twitter.com/Maybe-there"' in resp.content
+        assert b'google-plus-link"><a href="https://plus.google.com/+Maybe-there/posts"' in resp.content
 
     # @mock.patch('django.template.loader.render_to_string')
     # def test_get_message_returns_rendered_message_template(self, render_to_string):
-    #     context = {'message': 'an example message.'}
+    #     context = {'message': b'an example message.'}
     #
     #     class TestForm(forms.BaseEmailFormMixin):
     #         message_template_name = "my_template.html"
@@ -49,8 +51,8 @@ class BaseEmailFormMixinTests(test.TestCase):
 
     # @mock.patch('django.template.loader.render_to_string')
     # def test_get_subject_returns_single_line_rendered_subject_template(self, render_to_string):
-    #     render_to_string.return_value = 'This is \na \ntemplate.'
-    #     context = {'message': 'an example message.'}
+    #     render_to_string.return_value = b'This is \na \ntemplate.'
+    #     context = {'message': b'an example message.'}
     #
     #     class TestForm(forms.BaseEmailFormMixin):
     #         subject_template_name = "my_template.html"
@@ -70,7 +72,7 @@ class BaseEmailFormMixinTests(test.TestCase):
         class TestForm(forms.BaseEmailFormMixin, forms.forms.Form):
             name = forms.forms.CharField()
 
-        form = TestForm(data={'name': 'test'})
+        form = TestForm(data={'name': b'test'})
         form.request = request
         self.assertEqual(dict(name='test', request=request), form.get_context())
 
@@ -84,7 +86,7 @@ class BaseEmailFormMixinTests(test.TestCase):
         assert "Cannot generate Context when form is invalid." == str(ctx.exception)
 
 def test_sends_mail_with_message_dict(monkeypatch):
-    mock_request = test.RequestFactory().get(reverse("contact"))
+    request = test.RequestFactory().get(reverse("contact"))
     get_message_dict = Mock()
     get_message_dict.return_value = {"to": ["user@example.com"]}
     monkeypatch.setattr(
@@ -95,10 +97,10 @@ def test_sends_mail_with_message_dict(monkeypatch):
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
     form = forms.BaseEmailFormMixin()
-    assert form.send_email(mock_request) == 1
+    assert form.send_email(request) == 1
 
 def test_send_mail_sets_request_on_instance(monkeypatch):
-    mock_request = test.RequestFactory().get(reverse("contact"))
+    request = test.RequestFactory().get(reverse("contact"))
     get_message_dict = Mock()
     get_message_dict.return_value = {"to": ["user@example.com"]}
     monkeypatch.setattr(
@@ -109,8 +111,8 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
     form = forms.BaseEmailFormMixin()
-    form.send_email(mock_request)
-    assert mock_request == form.request
+    form.send_email(request)
+    assert request == form.request
 
 # def test_gets_message_dict(monkeypatch):
 #     form = forms.BaseEmailFormMixin()
@@ -119,8 +121,8 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
 #     assert message_dict == {
 #         "from_email": form.from_email,
 #         "to": form.recipient_list,
-#         "body": 'get_message.return_value',
-#         "subject": 'get_subject.return_value',
+#         "body": b'get_message.return_value',
+#         "subject": b'get_subject.return_value',
 #     }
 
     # @mock.patch("contact_form_bootstrap.forms.BaseEmailFormMixin.get_subject")
@@ -158,16 +160,17 @@ class ContactFormTests(test.TestCase):
             def get_email_headers(self):
                 return {'Reply-To': self.cleaned_data['email']}
 
-        mock_request = test.RequestFactory().get(reverse("contact"))
+        request = test.RequestFactory().get(reverse("contact"))
         reply_to_email = u'user@example.com' # the user's email
         data = {
-            'name': 'Test',
-            'body': 'Test message',
-            'phone': '0123456789',
+            'name': b'Test',
+            'body': b'Test message',
+            'phone': b'0123456789',
             'email': reply_to_email,
         }
         form = ReplyToForm(data=data)
-        assert form.send_email(mock_request)
+        print(form)
+        assert form.send_email(request)
         assert len(mail.outbox) == 1
         reply_to_header_email = mail.outbox[0].extra_headers['Reply-To']
         self.assertEqual(reply_to_email, reply_to_header_email)
