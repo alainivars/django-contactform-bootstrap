@@ -9,6 +9,9 @@ env:
     - TOX_ENV=py27-django17
     - TOX_ENV=py34-django16
     - TOX_ENV=py27-django16
+    - TOX_ENV=py34-django15
+    - TOX_ENV=py27-django15
+    - TOX_ENV=py27-django14
     - TOX_ENV=py27-djangomaster
     - TOX_ENV=py34-djangomaster
     - TOX_ENV=coverage_combine
@@ -21,6 +24,9 @@ matrix:
     - env: TOX_ENV=docs
     - env: TOX_ENV=py27-djangomaster
     - env: TOX_ENV=py34-djangomaster
+    - env: TOX_ENV=py34-django15
+    - env: TOX_ENV=py27-django15
+    - env: TOX_ENV=py27-django14
 
 before_install:
     - pip install pytest pytest-cov
