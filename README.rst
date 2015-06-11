@@ -16,6 +16,12 @@
       - https://github.com/alainivars/django-contact-form
 
 
+Requirements
+===========================
+
+ - Python 2.7 and 3.4
+ - Django 1.4.11+, 1.5.6+, 1.6.3+, 1.7+ and 1.8+
+
 Features
 ===========================
 
@@ -42,12 +48,6 @@ Screenshot
 .. image:: https://dl.dropboxusercontent.com/u/95975146/django-contactform-bootstrap.jpg
    :target: https://dl.dropboxusercontent.com/u/95975146/django-contactform-bootstrap.jpg
    :alt: Contact form Screenshot
-
-Requirements
-===========================
-
- - Python (2.7, 3.3, 3.4)
- - Django (1.6.3+, 1.7, 1.8)
 
 Download
 ===========================
