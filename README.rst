@@ -32,7 +32,6 @@ Todo
 ===========================
 
  - finish english translation and add other translations
- - improve coverage
  - improve log
  - manage display a link only if it exist
  - correct broken links in this file
@@ -47,13 +46,24 @@ Screenshot
 Requirements
 ===========================
 
- - Python (2.7, 3.2, 3.3, 3.4)
+ - Python (2.7, 3.3, 3.4)
  - Django (1.6.3+, 1.7, 1.8)
+
+Download
+===========================
+
+ - source code here::
+ git clone https://github.com/alainivars/django-contact-form.git
+
+ - packet::
+ https://pypi.python.org/pypi/django_contactform_bootstrap
+ or
+ pip install django_contactform_bootstrap
 
 Use
 ===========================
 
-    + Add in your setting file::
+    + Add in your settings file::
 
         ADMINS = (
             ('your admin name', 'contact@yourdomain.com'),
