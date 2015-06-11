@@ -3,8 +3,6 @@ language: python
 sudo: false
 
 env:
-    - TOX_ENV=coverage_combine
-    - TOX_ENV=docs
     - TOX_ENV=py34-django18
     - TOX_ENV=py27-django18
     - TOX_ENV=py34-django17
@@ -13,6 +11,8 @@ env:
     - TOX_ENV=py27-django16
     - TOX_ENV=py27-djangomaster
     - TOX_ENV=py34-djangomaster
+    - TOX_ENV=coverage_combine
+    - TOX_ENV=docs
 
 matrix:
   fast_finish: true
