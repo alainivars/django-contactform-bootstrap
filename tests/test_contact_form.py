@@ -4,13 +4,14 @@ from __future__ import unicode_literals
 Contact Form tests
 """
 from django import test
+from django.conf import settings
 from django.core import mail
 from django.core.urlresolvers import reverse
-from django.forms import CharField, EmailField
-from django.template import loader, TemplateDoesNotExist
+from django.forms import CharField
+from django.views.generic import TemplateView
 
-# from contact_form_bootstrap import forms, views
 from contact_form_bootstrap.forms import forms, BaseEmailFormMixin, ContactForm
+from contact_form_bootstrap.views import CompletedPage, ContactFormMixin, ContactFormView, FormView
 
 from mock import Mock
 
@@ -23,7 +24,6 @@ class BaseEmailFormMixinTests(test.TestCase):
 
     def test_goods_values_in_contact_page(self):
         resp = self.client.get(reverse("contact"))
-        print(resp.content)
         assert b'center: new google.maps.LatLng(48.8148446' in resp.content
         assert b'map: map, position: new google.maps.LatLng(48.8148446' in resp.content
         assert b'<h3 class="fn org">my company</h3>' in resp.content
@@ -36,48 +36,13 @@ class BaseEmailFormMixinTests(test.TestCase):
         assert b'twitter-link"><a href="http://twitter.com/Maybe-there"' in resp.content
         assert b'google-plus-link"><a href="https://plus.google.com/+Maybe-there/posts"' in resp.content
 
-    # @mock.patch('django.template.loader.render_to_string')
-    # def test_get_message_returns_rendered_message_template(self, render_to_string):
-    #     context = {'message': b'an example message.'}
-    #
-    #     class TestForm(forms.BaseEmailFormMixin):
-    #         message_template_name = "my_template.html"
-    #
-    #         def get_context(self):
-    #             return context
-    #
-    #     form = TestForm()
-    #
-    #     message = form.get_message()
-    #     self.assertEqual(render_to_string.return_value, message)
-    #     render_to_string.assert_called_once_with(form.message_template_name, context)
-
-    # @mock.patch('django.template.loader.render_to_string')
-    # def test_get_subject_returns_single_line_rendered_subject_template(self, render_to_string):
-    #     render_to_string.return_value = b'This is \na \ntemplate.'
-    #     context = {'message': b'an example message.'}
-    #
-    #     class TestForm(forms.BaseEmailFormMixin):
-    #         subject_template_name = "my_template.html"
-    #
-    #         def get_context(self):
-    #             return context
-    #
-    #     form = TestForm()
-    #
-    #     subject = form.get_subject()
-    #     self.assertEqual('This is a template.', subject)
-    #     render_to_string.assert_called_once_with(form.subject_template_name, context)
-
     def test_get_context_returns_cleaned_data_with_request_when_form_is_valid(self):
-        request = test.RequestFactory().post(reverse("contact"))
-
         class TestForm(BaseEmailFormMixin, forms.Form):
             name = CharField()
 
         form = TestForm(data={'name': b'test'})
-        form.request = request
-        self.assertEqual(dict(name='test', request=request), form.get_context())
+        form.request = test.RequestFactory().post(reverse("contact"))
+        self.assertEqual(dict(name='test', request=form.request), form.get_context())
 
     def test_get_context_returns_value_error_when_form_is_invalid(self):
         class TestForm(BaseEmailFormMixin, forms.Form):
@@ -99,7 +64,7 @@ def test_sends_mail_with_message_dict(monkeypatch):
     send.return_value = 1
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
-    form = BaseEmailFormMixin()
+    form = ContactForm()
     assert form.send_email(request) == 1
 
 def test_send_mail_sets_request_on_instance(monkeypatch):
@@ -113,56 +78,18 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
     send.return_value = 1
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
-    form = BaseEmailFormMixin()
+    form = ContactForm()
     form.send_email(request)
     assert request == form.request
-
-# def test_gets_message_dict(monkeypatch):
-#     form = forms.BaseEmailFormMixin()
-#     message_dict = form.get_message_dict()
-#
-#     assert message_dict == {
-#         "from_email": form.from_email,
-#         "to": form.recipient_list,
-#         "body": b'get_message.return_value',
-#         "subject": b'get_subject.return_value',
-#     }
-
-    # @mock.patch("contact_form_bootstrap.forms.BaseEmailFormMixin.get_subject")
-    # @mock.patch("contact_form_bootstrap.forms.BaseEmailFormMixin.get_message")
-    # def test_get_message_dict_adds_headers_when_present(self, get_message, get_subject):
-    #     email_headers = {"Reply-To": "user@example.com"}
-    #
-    #     class HeadersForm(forms.BaseEmailFormMixin):
-    #
-    #         def get_email_headers(self):
-    #             return email_headers
-    #
-    #     form = HeadersForm()
-    #     message_dict = form.get_message_dict()
-    #
-    #     self.assertEqual({
-    #         "from_email": form.from_email,
-    #         "to": form.recipient_list,
-    #         "body": get_message.return_value,
-    #         "subject": get_subject.return_value,
-    #         "headers": email_headers,
-    #     }, message_dict)
 
 
 class ContactFormTests(test.TestCase):
 
-    def test_is_subclass_of_form_and_base_email_form_mixin(self):
+    def test_is_subclass_of(self):
         self.assertTrue(issubclass(ContactForm, BaseEmailFormMixin))
-        # self.assertTrue(issubclass(ContactForm, Form))
+        self.assertTrue(issubclass(ContactForm, forms.Form))
 
     def test_sends_mail_with_headers(self):
-        class ReplyToForm(ContactForm):
-            email = EmailField()
-
-            def get_email_headers(self):
-                return {'Reply-To': self.cleaned_data['email']}
-
         request = test.RequestFactory().get(reverse("contact"))
         reply_to_email = u'user@example.com' # the user's email
         data = {
@@ -171,9 +98,44 @@ class ContactFormTests(test.TestCase):
             'phone': b'0123456789',
             'email': reply_to_email,
         }
-        form = ReplyToForm(data=data)
-        print(form)
+        form = ContactForm(data=data)
         assert form.send_email(request)
         assert len(mail.outbox) == 1
-        reply_to_header_email = mail.outbox[0].extra_headers['Reply-To']
-        self.assertEqual(reply_to_email, reply_to_header_email)
+        assert reply_to_email == mail.outbox[0].extra_headers['Reply-To']
+        assert form.get_email_headers() == {'Reply-To': 'user@example.com'}
+
+class CompletedPageTests(test.TestCase):
+
+    def test_is_subclass_of(self):
+        self.assertTrue(issubclass(CompletedPage, TemplateView))
+
+    def test_get_context_data(self):
+        c = CompletedPage()
+        context = c.get_context_data()
+        assert context['url'] == 'contact'
+
+
+class ContactFormViewTests(test.TestCase):
+
+    def test_is_subclass_of(self):
+        self.assertTrue(issubclass(ContactFormView, ContactFormMixin))
+        self.assertTrue(issubclass(ContactFormView, FormView))
+
+    def test_get_context_data(self):
+        v = ContactFormView()
+        context = v.get_context_data()
+        assert context['COMPANY_LAT'] == settings.COMPANY_INFOS['LAT']
+
+    def test_get_success_url(self):
+        v = ContactFormView()
+        assert v.get_success_url() == reverse("completed")
+
+    def test_form_valid(self):
+        class MyForm(object):
+            def send_email(self, request):
+                pass
+
+        f = MyForm()
+        v = ContactFormView()
+        v.request = test.RequestFactory().get(reverse("contact"))
+        assert v.form_valid(f)

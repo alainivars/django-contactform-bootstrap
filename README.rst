@@ -32,7 +32,6 @@ Todo
 ===========================
 
  - finish english translation and add other translations
- - improve coverage
  - improve log
  - manage display a link only if it exist
  - correct broken links in this file
