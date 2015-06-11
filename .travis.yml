@@ -22,11 +22,18 @@ matrix:
     - env: TOX_ENV=py27-djangomaster
     - env: TOX_ENV=py34-djangomaster
 
+before_install:
+    - pip install pytest pytest-cov
+    - pip install coveralls
+
 install:
   - pip install tox
 
 script:
     - tox -e $TOX_ENV
+
+after_success:
+    - coveralls
 
 notifications:
     email:
