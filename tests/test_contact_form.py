@@ -1,19 +1,22 @@
 from __future__ import unicode_literals
+
 """
 Contact Form tests
 """
 from django import test
 from django.core import mail
 from django.core.urlresolvers import reverse
+from django.forms import CharField, EmailField
 from django.template import loader, TemplateDoesNotExist
 
-from contact_form_bootstrap import forms, views
+# from contact_form_bootstrap import forms, views
+from contact_form_bootstrap.forms import forms, BaseEmailFormMixin, ContactForm
 
 from mock import Mock
 
 
 def test_BaseEmailFormMixin_get_email_headers():
-    form = forms.BaseEmailFormMixin()
+    form = BaseEmailFormMixin()
     assert not form.get_email_headers()
 
 class BaseEmailFormMixinTests(test.TestCase):
@@ -69,16 +72,16 @@ class BaseEmailFormMixinTests(test.TestCase):
     def test_get_context_returns_cleaned_data_with_request_when_form_is_valid(self):
         request = test.RequestFactory().post(reverse("contact"))
 
-        class TestForm(forms.BaseEmailFormMixin, forms.forms.Form):
-            name = forms.forms.CharField()
+        class TestForm(BaseEmailFormMixin, forms.Form):
+            name = CharField()
 
         form = TestForm(data={'name': b'test'})
         form.request = request
         self.assertEqual(dict(name='test', request=request), form.get_context())
 
     def test_get_context_returns_value_error_when_form_is_invalid(self):
-        class TestForm(forms.BaseEmailFormMixin, forms.forms.Form):
-            name = forms.forms.CharField()
+        class TestForm(BaseEmailFormMixin, forms.Form):
+            name = CharField()
 
         form = TestForm(data={})
         with self.assertRaises(ValueError) as ctx:
@@ -96,7 +99,7 @@ def test_sends_mail_with_message_dict(monkeypatch):
     send.return_value = 1
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
-    form = forms.BaseEmailFormMixin()
+    form = BaseEmailFormMixin()
     assert form.send_email(request) == 1
 
 def test_send_mail_sets_request_on_instance(monkeypatch):
@@ -110,7 +113,7 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
     send.return_value = 1
     monkeypatch.setattr("django.core.mail.message.EmailMessage.send", send)
 
-    form = forms.BaseEmailFormMixin()
+    form = BaseEmailFormMixin()
     form.send_email(request)
     assert request == form.request
 
@@ -150,12 +153,12 @@ def test_send_mail_sets_request_on_instance(monkeypatch):
 class ContactFormTests(test.TestCase):
 
     def test_is_subclass_of_form_and_base_email_form_mixin(self):
-        self.assertTrue(issubclass(forms.ContactForm, forms.BaseEmailFormMixin))
-        self.assertTrue(issubclass(forms.ContactForm, forms.forms.Form))
+        self.assertTrue(issubclass(ContactForm, BaseEmailFormMixin))
+        # self.assertTrue(issubclass(ContactForm, Form))
 
     def test_sends_mail_with_headers(self):
-        class ReplyToForm(forms.ContactForm):
-            email = forms.forms.EmailField()
+        class ReplyToForm(ContactForm):
+            email = EmailField()
 
             def get_email_headers(self):
                 return {'Reply-To': self.cleaned_data['email']}
