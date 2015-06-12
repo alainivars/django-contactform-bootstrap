@@ -3,9 +3,11 @@
 
 import os
 import sys
-import contact_form_bootstrap
+
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
+
+import contact_form_bootstrap
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
@@ -15,16 +17,16 @@ install_requires = [
     'django-crispy-bootstrap==0.1.1.1',
     'django-crispy-forms==1.4.0',
 #    'django-extra-views==0.6.4',
-    'requests==2.2.1',
+    'requests==2.7.0',
 ]
 
 prod_requires = [
 ]
 
 dev_requires = [
-    'flake8>=1.6,<2.0',
-    'django-extensions==1.3.3',
-    'django-debug-toolbar==1.0.1',
+#    'flake8>=1.6,<2.0',
+    'django-extensions==1.5.5',
+    'django-debug-toolbar==1.3.0',
 ]
 
 tests_require = [
