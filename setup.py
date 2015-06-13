@@ -3,6 +3,7 @@
 
 import os
 import sys
+import re
 
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
@@ -13,11 +14,10 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
 
 install_requires = [
-    'django==1.8.2',
-    'django-crispy-bootstrap==0.1.1.1',
-    'django-crispy-forms==1.4.0',
+    'django-crispy-bootstrap>=0.1.1.1',
+    'django-crispy-forms>=1.4.0',
 #    'django-extra-views==0.6.4',
-    'requests==2.7.0',
+    'requests>=2.7.0',
 ]
 
 prod_requires = [
@@ -34,8 +34,8 @@ tests_require = [
     'pytest-cov>=1.4',
     'pytest-django',
     'mock',
-    'cov-core==1.15.0',
-    'coverage==3.7.1',
+    'cov-core>=1.15.0',
+    'coverage>=3.7.1',
 ]
 
 class PyTest(TestCommand):
@@ -49,6 +49,29 @@ class PyTest(TestCommand):
         import pytest
         errno = pytest.main(self.test_args)
         sys.exit(errno)
+
+# Thank django-rest-framework team for the idea
+def get_version(package):
+    """
+    Return package version as listed in `VERSION` in `init.py`.
+    """
+    init_py = open(os.path.join(package, '__init__.py')).read()
+    return re.search("VERSION = ['\"]([^'\"]+)['\"]", init_py).group(1)
+
+version = get_version('contact_form_bootstrap')
+if sys.argv[-1] == 'publish':
+    if os.system("pip freeze | grep wheel"):
+        print("wheel not installed.\nUse `pip install wheel`.\nExiting.")
+        sys.exit()
+    if os.system("pip freeze | grep twine"):
+        print("twine not installed.\nUse `pip install twine`.\nExiting.")
+        sys.exit()
+    os.system("python setup.py sdist bdist_wheel")
+    os.system("twine upload dist/*")
+    print("You probably want to also tag the version now:")
+    print("  git tag -a %s -m 'version %s'" % (version, version))
+    print("  git push --tags")
+    sys.exit()
 
 
 setup(
