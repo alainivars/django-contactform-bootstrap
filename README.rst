@@ -6,6 +6,10 @@
    :target: https://coveralls.io/r/alainivars/django-contact-form?branch=devel
    :alt: Test coverage status
 
+.. image:: https://requires.io/github/alainivars/django-contact-form/requirements.svg/?branch=master
+   :target: https://requires.io/github/alainivars/django-contact-form/requirements.svg/?branch=master
+   :alt: Requirements Status
+
 * An Extensible Contact Form::
 
     Based entirely on James Bennett's django_contact_form:
