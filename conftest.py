@@ -16,5 +16,6 @@ def pytest_configure(config):
         }
     # settings.SITE_NAME = 'contact_form_bootstrap'
     import django
-    django.setup()
+    if django.VERSION[1] >= 7:
+        django.setup()
 
