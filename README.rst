@@ -10,21 +10,15 @@
    :target: https://requires.io/github/alainivars/django-contact-form/requirements/?branch=master
    :alt: Requirements Status
 
-* An Extensible Contact Form::
-
-    Based entirely on James Bennett's django_contact_form:
-      - https://bitbucket.org/ubernostrum/django_contact_form
-    Based on Aaron Madison django_contact_form:
-      - https://github.com/madisona/django-contact-form
-    By Alain Ivars django_contactform_bootstrap:
-      - https://github.com/alainivars/django-contact-form
-
+.. image:: https://d2weczhvl823v0.cloudfront.net/alainivars/django-contact-form/trend.png
+   :target: https://bitdeli.com/free
+   :alt: Bitdeli Badge
 
 Requirements
 ===========================
 
- - Python 2.7 and 3.4
- - Django 1.4.11+, 1.5.6+, 1.6.3+, 1.7+ and 1.8+
+ - Python 2.7 and 3.3, 3.4
+ - Django 1.4.11+, 1.7+, 1.8+ and master
 
 Features
 ===========================
@@ -57,12 +51,19 @@ Download
 ===========================
 
  - source code here::
- git clone https://github.com/alainivars/django-contact-form.git
+
+
+        git clone https://github.com/alainivars/django-contact-form.git
+
 
  - packet::
- https://pypi.python.org/pypi/django_contactform_bootstrap
- or
- pip install django_contactform_bootstrap
+
+        https://pypi.python.org/pypi/django_contactform_bootstrap
+
+ - or::
+
+        pip install django_contactform_bootstrap
+
 
 Use
 ===========================
@@ -96,11 +97,6 @@ Use
         EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER and EMAIL_HOST_PASSWORD
 
 
-    + Be sure to have::
-
-        'homepage' defined in your url file
-
-
 Documentation
 ===========================
 
@@ -118,6 +114,13 @@ Check also for the latest updates of this project on Github_.
 Credits
 ===========================
 
+    Based on James Bennett's django_contact_form:
+      - https://bitbucket.org/ubernostrum/django_contact_form
+    Based on Aaron Madison django_contact_form:
+      - https://github.com/madisona/django-contact-form
+    By Alain Ivars django_contactform_bootstrap:
+      - https://github.com/alainivars/django-contact-form
+
 * `django`_
 
 .. _Github: https://github.com/alainivars/django_contactform_bootstrap
@@ -133,5 +136,5 @@ Credits
    :alt: PyPi wheel
 
 .. image:: https://readthedocs.org/projects/django_contactform_bootstrap/badge/?version=latest
-    :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
-    :alt: Documentation status
+   :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
+   :alt: Documentation status

@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 Contact Form tests
 """
 from django import test
-from django.conf import settings
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.forms import CharField
@@ -120,11 +119,6 @@ class ContactFormViewTests(test.TestCase):
     def test_is_subclass_of(self):
         self.assertTrue(issubclass(ContactFormView, ContactFormMixin))
         self.assertTrue(issubclass(ContactFormView, FormView))
-
-    def test_get_context_data(self):
-        v = ContactFormView()
-        context = v.get_context_data()
-        assert context['COMPANY_LAT'] == settings.COMPANY_INFOS['LAT']
 
     def test_get_success_url(self):
         v = ContactFormView()
