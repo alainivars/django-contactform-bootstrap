@@ -15,7 +15,7 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
 install_requires = [
     'django-crispy-bootstrap>=0.1.1.1',
-    'django-crispy-forms>=1.4.0',
+    'django-crispy-forms-ng==2.0.0',
 #    'django-extra-views==0.6.4',
     'requests>=2.7.0',
 ]
