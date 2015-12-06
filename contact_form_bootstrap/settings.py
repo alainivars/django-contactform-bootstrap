@@ -1,6 +1,5 @@
 __author__ = 'alainivars'
 
-
 ADMINS = (
     ('Alain Ivars', 'contact@mydomain.com'),
 )
