@@ -70,6 +70,12 @@ Use
 
     + Add in your settings file::
 
+        INSTALLED_APPS = (
+            ...
+            'contact_form_bootstrap',
+            ...
+        )
+
         ADMINS = (
             ('your admin name', 'contact@yourdomain.com'),
         )

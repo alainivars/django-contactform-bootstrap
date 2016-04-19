@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic import FormView
 
-from contact_form_bootstrap import settings
+from django.conf import settings
 from contact_form_bootstrap.forms import ContactForm
 
 
