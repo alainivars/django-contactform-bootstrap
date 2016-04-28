@@ -23,3 +23,8 @@ COMPANY_INFOS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# if you use capcha overload these parameters and set USE_RECAPTCHA to True
+USE_RECAPTCHA = False
+RECAPTCHA_PUBLIC_KEY = 'your reCapcha public key'
+RECAPTCHA_PRIVATE_KEY = 'your reCapcha private key'
