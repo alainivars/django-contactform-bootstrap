@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-contact-form\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-10 15:46+0200\n"
+"POT-Creation-Date: 2016-04-29 00:05+0200\n"
 "PO-Revision-Date: 2013-01-10 16:11+0300\n"
 "Last-Translator: Sergey Tereschenko <serg.partizan@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -19,30 +19,62 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: forms.py:72
-msgid "Your name"
-msgstr "Ваше имя"
+#: forms.py:80
+msgid "Name"
+msgstr ""
 
-#: forms.py:73
-msgid "Your email address"
+#: forms.py:81
+msgid "Email address"
 msgstr "Ваш email"
 
-#: forms.py:74
-msgid "Your message"
+#: forms.py:82
+msgid "Phone"
+msgstr ""
+
+#: forms.py:83
+msgid "Message"
 msgstr "Ваше сообщение"
 
-#: templates/contact_form/contact.html:5
-msgid "Contact Form"
-msgstr "Форма обратной связи"
+#: forms.py:107 forms.py:124
+msgid "Submit"
+msgstr ""
 
-#: templates/contact_form/contact.html:6
-msgid "This is the contact form"
-msgstr "Это форма обратной связи"
-
-#: templates/contact_form/contact.html:10
+#: templates/contact.html:3 templates/contact.html.py:13
 msgid "Contact Us"
 msgstr "Свяжитесь с нами"
 
-#: templates/contact_form/contact_completed.html:5
+#: templates/contact.html:10
+msgid "Contact"
+msgstr "Свяжитесь с нами"
+
+#: templates/contact.html:10
+msgid "We'd Love to Hear From You!"
+msgstr ""
+
+#: templates/contact.html:12 templates/contact_completed.html:11
+msgid "Home"
+msgstr ""
+
+#: templates/contact.html:47
+msgid "Let's Get In Touch!"
+msgstr ""
+
+#: templates/contact.html:48
+msgid "You need to get in touch with us, complete the form."
+msgstr ""
+
+#: templates/contact.html:59
+msgid "Monday - Friday: 9:00 to 18:00"
+msgstr ""
+
+#: templates/contact_completed.html:3 templates/contact_completed.html:12
+msgid "Contact Completed"
+msgstr ""
+
+#: templates/contact_completed.html:9
+msgid "Thank, it good to Hear From You!"
+msgstr ""
+
+#: templates/contact_completed.html:16
 msgid "Thank you! Your message was sent successfully."
 msgstr "Спасибо! Ваше сообщение отправлено."

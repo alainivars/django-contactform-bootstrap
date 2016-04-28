@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 01:09+0200\n"
+"POT-Creation-Date: 2016-04-29 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,58 +18,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: forms.py:88
+#: forms.py:80
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
-#: forms.py:89
+#: forms.py:81
 msgid "Email address"
-msgstr ""
+msgstr "Adresse électronique"
 
-#: forms.py:90
+#: forms.py:82
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
-#: forms.py:91
+#: forms.py:83
 msgid "Message"
 msgstr ""
 
-#: forms.py:110
+#: forms.py:107 forms.py:124
 msgid "Submit"
-msgstr ""
+msgstr "Envoyez"
 
 #: templates/contact.html:3 templates/contact.html.py:13
 msgid "Contact Us"
+msgstr "Contactez-nous"
+
+#: templates/contact.html:10
+msgid "Contact"
 msgstr ""
 
 #: templates/contact.html:10
 msgid "We'd Love to Hear From You!"
-msgstr ""
+msgstr "Nous aimerions recevoir de vos nouvelles!"
 
 #: templates/contact.html:12 templates/contact_completed.html:11
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
-#: templates/contact.html:29
+#: templates/contact.html:47
 msgid "Let's Get In Touch!"
-msgstr ""
+msgstr "Entrons en contact!"
 
-#: templates/contact.html:30
+#: templates/contact.html:48
 msgid "You need to get in touch with us, complete the form."
-msgstr ""
+msgstr "Vous avez besoin d'entrer en contact avec nous, remplissez le formulaire."
 
-#: templates/contact.html:41
+#: templates/contact.html:59
 msgid "Monday - Friday: 9:00 to 18:00"
-msgstr ""
+msgstr "Lundi - Vendredi de 9h à 18h"
 
 #: templates/contact_completed.html:3 templates/contact_completed.html:12
 msgid "Contact Completed"
-msgstr ""
+msgstr "Formulaire complété"
 
 #: templates/contact_completed.html:9
 msgid "Thank, it good to Hear From You!"
-msgstr ""
+msgstr "Merci, il est bon de connaître votre opinion!"
 
 #: templates/contact_completed.html:16
 msgid "Thank you! Your message was sent successfully."
-msgstr ""
+msgstr "Nous vous remercions! Votre message a bien été envoyé."

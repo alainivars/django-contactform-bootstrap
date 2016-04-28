@@ -1,5 +1,6 @@
 .idea
 .coverage
+.cache/*
 .project
 .pydevproject
 *.py[co]

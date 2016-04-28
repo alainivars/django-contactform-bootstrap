@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 01:09+0200\n"
+"POT-Creation-Date: 2016-04-29 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,28 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: forms.py:88
+#: forms.py:80
 msgid "Name"
 msgstr ""
 
-#: forms.py:89
+#: forms.py:81
 msgid "Email address"
 msgstr ""
 
-#: forms.py:90
+#: forms.py:82
 msgid "Phone"
 msgstr ""
 
-#: forms.py:91
+#: forms.py:83
 msgid "Message"
 msgstr ""
 
-#: forms.py:110
+#: forms.py:107 forms.py:124
 msgid "Submit"
 msgstr ""
 
 #: templates/contact.html:3 templates/contact.html.py:13
 msgid "Contact Us"
+msgstr ""
+
+#: templates/contact.html:10
+msgid "Contact"
 msgstr ""
 
 #: templates/contact.html:10
@@ -49,15 +53,15 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: templates/contact.html:29
+#: templates/contact.html:47
 msgid "Let's Get In Touch!"
 msgstr ""
 
-#: templates/contact.html:30
+#: templates/contact.html:48
 msgid "You need to get in touch with us, complete the form."
 msgstr ""
 
-#: templates/contact.html:41
+#: templates/contact.html:59
 msgid "Monday - Friday: 9:00 to 18:00"
 msgstr ""
 

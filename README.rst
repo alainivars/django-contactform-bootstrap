@@ -22,41 +22,57 @@
    :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
    :alt: licence
 
+.. image:: https://img.shields.io/pypi/v//django_contactform_bootstrap.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap
+   :alt: PyPi version
+
+.. image:: https://landscape.io/github/alainivars/django-contact-form/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/alainivars/django-contact-form/master
+   :alt: Code Health
+
+.. image:: https://readthedocs.org/projects/django_contactform_bootstrap/badge/?version=latest
+   :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
+   :alt: Documentation status
+
+.. image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
+   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
+   :alt: PyPi wheel
+
 
 
 Releases Notes
 ==============
 
-    0.6.1: fix import reCapcha support
-    0.6.0: add reCapcha support, fix links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
-    0.5.11: fix a bug with import main settings
-    0.5.0: Add support and tests on Django 1.9 and update dependencies
+    - 0.6.2: finish english and french translation
+    - 0.6.1: fix import reCapcha support
+    - 0.6.0: add reCapcha support, fix links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
+    - 0.5.11: fix a bug with import main settings
+    - 0.5.0: Add support and tests on Django 1.9 and update dependencies
 
 Requirements
 ============
 
- - Python 2.7 and 3.3, 3.4
- - Django 1.4.11+, 1.7+, 1.8+, 1.9+ and master
+    - Python 2.7 and 3.3, 3.4
+    - Django 1.4.11+, 1.7+, 1.8+, 1.9+ and master
 
 Features
 ========
 
 * Functionality as a django contact form::
 
-  - easy integration into an existing django project
-  - Bootstrap 3
-  - integrate geographical map
-  - log (not yet finish)
-  - tests and coverage
-  - links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
+    - easy integration into an existing django project
+    - Bootstrap 3
+    - integrate geographical map
+    - log (not yet finish)
+    - tests and coverage
+    - links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
 
 Todo
 ====
 
- - finish english translation and add other translations
- - improve log
- - manage display a link only if it exist
- - correct broken links in this file
+    - finish  Portuguese, Russian and Spanish translation and add other translations
+    - manage display a link only if it exist
+    - correct broken status links in this file
 
 Screenshot
 ==========
@@ -69,7 +85,6 @@ Download
 ========
 
  - source code here::
-
 
         git clone https://github.com/alainivars/django-contact-form.git
 
@@ -115,10 +130,10 @@ Use
 
         CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-         USE_RECAPTCHA = False or True
-         and if you use it :
-         RECAPTCHA_PUBLIC_KEY = 'your reCapcha public key'
-         RECAPTCHA_PRIVATE_KEY = 'your reCapcha private key'
+        USE_RECAPTCHA = False or True
+        and if you use it : (https://www.google.com/recaptcha)
+        RECAPTCHA_PUBLIC_KEY = 'your reCapcha public key'
+        RECAPTCHA_PRIVATE_KEY = 'your reCapcha private key'
 
     + Don't forget to set::
 
@@ -154,15 +169,3 @@ Credits
 .. _Github: https://github.com/alainivars/django_contactform_bootstrap
 .. _Issue Tracker: https://github.com/alainivars/django_contactform_bootstrap/issues
 .. _django: http://www.djangoproject.com
-
-.. image:: https://pypip.in/version/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-   :alt: PyPi version
-
-.. image:: https://pypip.in/wheel/django_contactform_bootstrap/badge.svg
-   :target: https://pypi.python.org/pypi/django_contactform_bootstrap/
-   :alt: PyPi wheel
-
-.. image:: https://readthedocs.org/projects/django_contactform_bootstrap/badge/?version=latest
-   :target: https://readthedocs.org/projects/django_contactform_bootstrap/?badge=latest
-   :alt: Documentation status

@@ -1,37 +1,69 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-28-04 16:55-0400\n"
+"POT-Creation-Date: 2016-04-29 00:05+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: forms.py:72
-msgid "Your name"
-msgstr "Su nombre"
+#: forms.py:80
+msgid "Name"
+msgstr ""
 
-#: forms.py:73
-msgid "Your email address"
+#: forms.py:81
+msgid "Email address"
 msgstr "Su e-mail"
 
-#: forms.py:74
-msgid "Your message"
-msgstr "Su mensaje"
+#: forms.py:82
+msgid "Phone"
+msgstr ""
 
-#: templates/contact_form/contact.html:5
-msgid "Contact Form"
-msgstr "Formulario de contato"
+#: forms.py:83
+msgid "Message"
+msgstr "Mensaje"
 
-#: templates/contact_form/contact.html:6
-msgid "This is the contact form"
-msgstr "Este es el formulario de contato"
+#: forms.py:107 forms.py:124
+msgid "Submit"
+msgstr ""
 
-#: templates/contact_form/contact.html:10
+#: templates/contact.html:3 templates/contact.html.py:13
 msgid "Contact Us"
 msgstr "Contáctenos"
 
-#: templates/contact_form/contact_completed.html:5
+#: templates/contact.html:10
+msgid "Contact"
+msgstr "Contáctenos"
+
+#: templates/contact.html:10
+msgid "We'd Love to Hear From You!"
+msgstr ""
+
+#: templates/contact.html:12 templates/contact_completed.html:11
+msgid "Home"
+msgstr ""
+
+#: templates/contact.html:47
+msgid "Let's Get In Touch!"
+msgstr ""
+
+#: templates/contact.html:48
+msgid "You need to get in touch with us, complete the form."
+msgstr ""
+
+#: templates/contact.html:59
+msgid "Monday - Friday: 9:00 to 18:00"
+msgstr ""
+
+#: templates/contact_completed.html:3 templates/contact_completed.html:12
+msgid "Contact Completed"
+msgstr ""
+
+#: templates/contact_completed.html:9
+msgid "Thank, it good to Hear From You!"
+msgstr ""
+
+#: templates/contact_completed.html:16
 msgid "Thank you! Your message was sent successfully."
 msgstr "Gracias! Su mensaje ha sido enviado."
