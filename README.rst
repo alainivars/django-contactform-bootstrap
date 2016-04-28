@@ -27,6 +27,7 @@
 Releases Notes
 ==============
 
+    0.6.1: fix import reCapcha support
     0.6.0: add reCapcha support, fix links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
     0.5.11: fix a bug with import main settings
     0.5.0: Add support and tests on Django 1.9 and update dependencies
