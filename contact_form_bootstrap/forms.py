@@ -9,11 +9,13 @@ from django.core.mail.message import EmailMessage
 from django.template import loader
 from django.utils.translation import ugettext_lazy as _
 
+from captcha.fields import ReCaptchaField
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit
 from crispy_forms.bootstrap import FormActions
 
 logger = logging.getLogger(__name__)
+
 
 class BaseEmailFormMixin(object):
     from_email = settings.DEFAULT_FROM_EMAIL
@@ -79,6 +81,7 @@ class ContactForm(forms.Form, BaseEmailFormMixin):
     email = forms.EmailField(label=_(u'Email address'), max_length=200)
     phone = forms.CharField(label=_(u'Phone'), max_length=25)
     body = forms.CharField(label=_(u'Message'), widget=forms.Textarea())
+    captcha = ReCaptchaField(attrs={'theme': 'clean'})
 
     def __init__(self, *args, **kwargs):
         logger.debug('__init__')
@@ -89,22 +92,42 @@ class ContactForm(forms.Form, BaseEmailFormMixin):
         self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
         self.helper.form_class = 'form'
-        self.helper.layout = Layout(
-            Div(
-                Div('name', css_class="form-group col-lg-4"),
-                Div('email', css_class="form-group col-lg-4"),
-                Div('phone', css_class="form-group col-lg-4"),
-                Div(css_class="clearfix"),
-                Div('body', css_class="form-group col-lg-12"),
-                FormActions(
-                    Div(
-                        Submit('submit', _('Submit'), css_class='btn btn-primary'),
-                        css_class="form-group col-lg-12"
+        if settings.USE_RECAPTCHA:
+            self.helper.layout = Layout(
+                Div(
+                    Div('name', css_class="form-group col-lg-4"),
+                    Div('email', css_class="form-group col-lg-4"),
+                    Div('phone', css_class="form-group col-lg-4"),
+                    Div(css_class="clearfix"),
+                    Div('body', css_class="form-group col-lg-12"),
+                    Div(css_class="clearfix"),
+                    Div('captcha', css_class="form-group col-lg-12"),
+                    FormActions(
+                        Div(
+                            Submit('submit', _('Submit'), css_class='btn btn-primary'),
+                            css_class="form-group col-lg-12"
+                        ),
                     ),
+                    css_class="row",
                 ),
-                css_class="row",
-            ),
-        )
+            )
+        else:
+            self.helper.layout = Layout(
+                Div(
+                    Div('name', css_class="form-group col-lg-4"),
+                    Div('email', css_class="form-group col-lg-4"),
+                    Div('phone', css_class="form-group col-lg-4"),
+                    Div(css_class="clearfix"),
+                    Div('body', css_class="form-group col-lg-12"),
+                    FormActions(
+                        Div(
+                            Submit('submit', _('Submit'), css_class='btn btn-primary'),
+                            css_class="form-group col-lg-12"
+                        ),
+                    ),
+                    css_class="row",
+                ),
+            )
 
     def get_email_headers(self):
         logger.debug('get_email_headers')
