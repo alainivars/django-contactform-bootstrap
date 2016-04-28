@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 """
 Contact Form tests
 """
+import os
 from django import test
 from django.core import mail
 from django.core.urlresolvers import reverse
@@ -33,7 +34,7 @@ class BaseEmailFormMixinTests(test.TestCase):
         assert b'facebook-link"><a href="http://fr-fr.facebook.com/people/Maybe-there"' in resp.content
         assert b'linkedin-link"><a href="http://www.linkedin.com/in/Maybe-there"' in resp.content
         assert b'twitter-link"><a href="http://twitter.com/Maybe-there"' in resp.content
-        assert b'google-plus-link"><a href="https://plus.google.com/+Maybe-there/posts"' in resp.content
+        assert b'google-plus-link"><a href="https://plus.google.com/Maybe-there/posts"' in resp.content
 
     def test_get_context_returns_cleaned_data_with_request_when_form_is_valid(self):
         class TestForm(BaseEmailFormMixin, forms.Form):
@@ -89,6 +90,7 @@ class ContactFormTests(test.TestCase):
         self.assertTrue(issubclass(ContactForm, forms.Form))
 
     def test_sends_mail_with_headers(self):
+        os.environ['RECAPTCHA_TESTING'] = 'True'
         request = test.RequestFactory().get(reverse("contact"))
         reply_to_email = u'user@example.com' # the user's email
         data = {
@@ -96,12 +98,15 @@ class ContactFormTests(test.TestCase):
             'body': b'Test message',
             'phone': b'0123456789',
             'email': reply_to_email,
+            'recaptcha_response_field': 'PASSED'
         }
         form = ContactForm(data=data)
         assert form.send_email(request)
         assert len(mail.outbox) == 1
         assert reply_to_email == mail.outbox[0].extra_headers['Reply-To']
         assert form.get_email_headers() == {'Reply-To': 'user@example.com'}
+        os.environ['RECAPTCHA_TESTING'] = 'False'
+
 
 class CompletedPageTests(test.TestCase):
 

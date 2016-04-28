@@ -16,10 +16,10 @@ COMPANY_INFOS = {
     'LNG': 2.0523723999999675,
     'PHONE': "+336 1234 5678",
     'EMAIL': 'contact@mycompany.com',
-    'FACEBOOK': "Maybe-there",
-    'LINKEDIN': "Maybe-there",
-    'TWITTER': "Maybe-there",
-    'GOOGLEPLUS': "+Maybe-there",
+    'FACEBOOK': "http://fr-fr.facebook.com/people/Maybe-there",
+    'LINKEDIN': "http://www.linkedin.com/in/Maybe-there",
+    'TWITTER': "http://twitter.com/Maybe-there",
+    'GOOGLEPLUS': "https://plus.google.com/Maybe-there/posts",
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
