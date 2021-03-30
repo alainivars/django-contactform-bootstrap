@@ -13,3 +13,6 @@ pytest-cov==2.11.1
 pytest-django==4.1.0
 mock==4.0.3
 coverage==5.5
+flake8==2.4.1
+sphinx
+six

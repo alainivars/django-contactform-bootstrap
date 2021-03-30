@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 import logging
@@ -88,21 +88,21 @@ class ContactForm(Form, BaseEmailFormMixin):
     email = EmailField(
         widget=EmailInput(
             attrs={
-                "placeholder" : "Email",
+                "placeholder": "Email",
                 "class": "form-control"
             }
         ))
     phone = CharField(
         widget=TextInput(
             attrs={
-                "placeholder" : "Phone",
+                "placeholder": "Phone",
                 "class": "form-control"
             }
         ))
     body = CharField(
         widget=Textarea(
             attrs={
-                "placeholder" : "Message",
+                "placeholder": "Message",
                 "class": "form-control"
             }
         ))

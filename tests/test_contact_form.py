@@ -95,7 +95,8 @@ class ContactFormTests(test.TestCase):
         self.assertTrue(issubclass(ContactForm, BaseEmailFormMixin))
         self.assertTrue(issubclass(ContactForm, Form))
 
-    @mock.patch("contact_form_bootstrap.forms.ReCaptchaField", lambda: CharField(required=False))
+    @mock.patch("contact_form_bootstrap.forms.ReCaptchaField",
+                lambda: CharField(required=False))
     def test_sends_mail_with_headers(self):
         os.environ['RECAPTCHA_TESTING'] = 'True'
         request = test.RequestFactory().get(reverse("contact"))
