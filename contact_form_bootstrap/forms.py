@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 
 import logging
 
-from django import forms
+from captcha.widgets import ReCaptchaV2Checkbox
 from django.conf import settings
 from django.core.mail.message import EmailMessage
+from django.forms import Form, CharField, EmailField, EmailInput, Textarea, TextInput
 from django.template import loader
 from django.utils.translation import ugettext_lazy as _
 
@@ -73,19 +74,53 @@ class BaseEmailFormMixin(object):
         return EmailMessage(**self.get_message_dict()).send(fail_silently=fail_silently)
 
 
-class ContactForm(forms.Form, BaseEmailFormMixin):
+class ContactForm(Form, BaseEmailFormMixin):
     """
     A very basic contact form you can use out of the box if you wish.
     """
-    name = forms.CharField(label=_(u'Name'), max_length=100)
-    email = forms.EmailField(label=_(u'Email address'), max_length=200)
-    phone = forms.CharField(label=_(u'Phone'), max_length=25)
-    body = forms.CharField(label=_(u'Message'), widget=forms.Textarea())
-    captcha = ReCaptchaField(attrs={'theme': 'clean'})
+    name = CharField(
+        widget=TextInput(
+            attrs={
+                "placeholder": "Name",
+                "class": "form-control"
+            }
+        ))
+    email = EmailField(
+        widget=EmailInput(
+            attrs={
+                "placeholder" : "Email",
+                "class": "form-control"
+            }
+        ))
+    phone = CharField(
+        widget=TextInput(
+            attrs={
+                "placeholder" : "Phone",
+                "class": "form-control"
+            }
+        ))
+    body = CharField(
+        widget=Textarea(
+            attrs={
+                "placeholder" : "Message",
+                "class": "form-control"
+            }
+        ))
+    # captcha = ReCaptchaField(
+    #     widget=ReCaptchaV2Checkbox(
+    #         attrs={'theme': 'clean'}
+    #     ))
 
     def __init__(self, *args, **kwargs):
         logger.debug('__init__')
         super(ContactForm, self).__init__(*args, **kwargs)
+        # Add captcha in the constructor to allow mock it
+        # because https://github.com/mbi/django-simple-captcha/issues/84
+        self.fields["captcha"] = ReCaptchaField(
+            # widget=ReCaptchaV2Checkbox(
+            #     attrs={'theme': 'clean'}
+            # )
+        )
         # cryspy
         self.helper = FormHelper()
         self.helper.form_id = 'id-CcontactForm'

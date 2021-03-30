@@ -25,7 +25,8 @@ SECRET_KEY = 'the-test-key'
 ROOT_URLCONF = 'contact_form_bootstrap.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templatetags".
+    # Put strings here, like "/home/html/django_templates"
+    # or "C:/www/django/templatetags".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     ( os.path.join(settings_path, 'templates'), )
@@ -38,9 +39,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'the-test-key'
 
 # List of callables that know how to import templatetags from various sources.
 TEMPLATE_LOADERS = (
@@ -60,7 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # authentification pour toutes les page
+    # authentification on all pages
     #'django_base_app.authentification.middleware.LoginRequiredMiddleware',
 )
 
@@ -73,8 +71,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-    # pour internationalisation d apres le tuto django du site
-    # http://fr.openclassrooms.com/informatique/cours/developpez-votre-site-web-avec-le-framework-django/qu-est-ce-que-le-i18n-et-comment-s-en-servir
     "django.core.context_processors.i18n",
 )
 

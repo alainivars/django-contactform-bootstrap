@@ -1,7 +1,28 @@
-__author__ = 'alainivars'
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'contact_form_bootstrap/templates'),
+            os.path.join(BASE_DIR, 'example/templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 ADMINS = (
-    ('Alain Ivars', 'contact@mydomain.com'),
+    ('Firstname Lastname', 'contact@mydomain.com'),
 )
 
 CONTACT_FORM_SUBJECT_TEMPLATE_NAME = 'email_subject.txt'

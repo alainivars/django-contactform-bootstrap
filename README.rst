@@ -43,6 +43,7 @@
 Releases Notes
 ==============
 
+    - 1.0rc1: Add support and tests on Django 2.1.1, 2.2.19, 3.1.7 and update dependencies
     - 0.6.2: finish english and french translation
     - 0.6.1: fix import reCapcha support
     - 0.6.0: add reCapcha support, fix links to your : FACEBOOK, LINKEDIN, TWITTER, GOOGLE+
@@ -52,8 +53,8 @@ Releases Notes
 Requirements
 ============
 
-    - Python 2.7 and 3.3, 3.4
-    - Django 1.4.11+, 1.7+, 1.8+, 1.9+ and master
+    - Python 3.8, 3.9
+    - Django 2.1.1+, 2.2.19+, 3.1.7+ and djangomaster
 
 Features
 ========
@@ -61,7 +62,7 @@ Features
 * Functionality as a django contact form::
 
     - easy integration into an existing django project
-    - Bootstrap 3
+    - Bootstrap 5
     - integrate geographical map
     - log (not yet finish)
     - tests and coverage

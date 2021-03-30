@@ -14,10 +14,10 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
 
 install_requires = [
-    'django-crispy-bootstrap>=0.1.1.1',
-    'django-crispy-forms-ng==2.0.0',
-    'django-recaptcha==1.0.5',
-    'requests>=2.7.0',
+    'django-crispy-bootstrap==0.1.1.1',
+    'django-crispy-forms>=1.11.2',
+    'django-recaptcha==2.0.6',
+    'requests==2.25.1',
 ]
 
 prod_requires = [
@@ -25,18 +25,18 @@ prod_requires = [
 
 dev_requires = [
 #    'flake8>=1.6,<2.0',
-    'django-extensions==1.5.5',
-    'django-debug-toolbar==1.3.0',
+    'django-extensions>=1.5.5',
+    'django-debug-toolbar>=1.3.0',
 ]
 
 tests_require = [
     'pytest',
-    'pytest-cov>=1.4',
+    'pytest-cov==2.11.1',
     'pytest-django',
     'mock',
-    'cov-core>=1.15.0',
-    'coverage>=3.7.1',
+    'coverage==5.5',
 ]
+
 
 class PyTest(TestCommand):
     def finalize_options(self):
@@ -50,6 +50,7 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)
 
+
 # Thank django-rest-framework team for the idea
 def get_version(package):
     """
@@ -57,6 +58,7 @@ def get_version(package):
     """
     init_py = open(os.path.join(package, '__init__.py')).read()
     return re.search("VERSION = ['\"]([^'\"]+)['\"]", init_py).group(1)
+
 
 version = get_version('contact_form_bootstrap')
 if sys.argv[-1] == 'publish':
@@ -79,7 +81,7 @@ setup(
     version=contact_form_bootstrap.VERSION,
     packages=find_packages('.'),
     include_package_data=True,
-    license='BSD License',  # example license
+    license='BSD License',  # example.new license
     description='A Django Base contact form with bootstrap 3 and map.',
     long_description=README,
     url='http://www.github.com/alainivars/contact_form_bootstrap/',
