@@ -5,12 +5,20 @@ sudo: false
 env:
     - TOX_ENV=py39-django317
     - TOX_ENV=py38-django317
+    - TOX_ENV=py37-django317
+    - TOX_ENV=py36-django317
     - TOX_ENV=py39-django221
     - TOX_ENV=py38-django221
+    - TOX_ENV=py37-django221
+    - TOX_ENV=py36-django221
     - TOX_ENV=py39-django211
     - TOX_ENV=py38-django211
+    - TOX_ENV=py37-django211
+    - TOX_ENV=py36-django211
     - TOX_ENV=py39-djangomaster
     - TOX_ENV=py38-djangomaster
+    - TOX_ENV=py37-djangomaster
+    - TOX_ENV=py36-djangomaster
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
 
@@ -19,8 +27,18 @@ matrix:
   allow_failures:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
-    - env: TOX_ENV=py38-djangomaster
+    - env: TOX_ENV=py39-django317
+    - env: TOX_ENV=py38-django317
+    - env: TOX_ENV=py37-django317
+    - env: TOX_ENV=py39-django221
+    - env: TOX_ENV=py38-django221
+    - env: TOX_ENV=py37-django221
+    - env: TOX_ENV=py39-django211
+    - env: TOX_ENV=py38-django211
+    - env: TOX_ENV=py37-django211
     - env: TOX_ENV=py39-djangomaster
+    - env: TOX_ENV=py38-djangomaster
+    - env: TOX_ENV=py37-djangomaster
 
 before_install:
     - pip install pytest pytest-cov
