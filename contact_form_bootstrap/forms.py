@@ -117,9 +117,9 @@ class ContactForm(Form, BaseEmailFormMixin):
         # Add captcha in the constructor to allow mock it
         # because https://github.com/mbi/django-simple-captcha/issues/84
         self.fields["captcha"] = ReCaptchaField(
-            # widget=ReCaptchaV2Checkbox(
-            #     attrs={'theme': 'clean'}
-            # )
+            widget=ReCaptchaV2Checkbox(
+                attrs={'theme': 'clean'}
+            )
         )
         # cryspy
         self.helper = FormHelper()
